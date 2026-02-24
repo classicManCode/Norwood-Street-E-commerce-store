@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
+  /* The "Canvas" */
   --background: #ffffff;
-  --foreground: #171717;
+  
+  /* The "Ink" */
+  --foreground: #000000; 
+  
+  /* Sub-headings and supporting info */
+  --text-muted: #455a64; 
+  
+  /* For subtle borders or card backgrounds */
+  --surface: #f7f7f7; 
+  
+  /* Your brand "Action" color */
+  --primary: #b0bec5; 
 }
 
 @theme inline {
@@ -14,8 +26,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f7f7f7;
+    --foreground: #273238;
   }
 }
 
