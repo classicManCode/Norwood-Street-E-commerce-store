@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import heroImg1 from "@/public/gym-equipment.jpg";
+import Image, { StaticImageData } from "next/image";
 import { Arimo } from "next/font/google";
 
 const arimo = Arimo({
@@ -9,50 +8,31 @@ const arimo = Arimo({
   style: ["italic", "normal"],
 });
 
-const Collections = () => {
+interface Collections {
+  title: string;
+  subtitle: string;
+  images?: StaticImageData[];
+}
+
+const Collections = ({ title, subtitle, images }: Collections) => {
   return (
     <section className="px-4">
       <h2 className={`text-2xl font-bold ${arimo.className} italic`}>
-        Featured Collections
+        {title}
       </h2>
-      <p className={`text-lg ${arimo.className}`}>Shop All Collections</p>
+      <p className={`text-lg ${arimo.className}`}>{subtitle}</p>
       <div className="grid grid-cols-4 grid-rows-3 gap-4">
-        <div className="relative h-64 w-full col-start-1">
-          <Image
-            src={heroImg1}
-            alt="Hero"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div className="relative h-64 w-full col-start-2">
-          <Image
-            src={heroImg1}
-            alt="Hero"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div className="relative h-64 w-full col-start-3">
-          <Image
-            src={heroImg1}
-            alt="Hero"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div className="relative h-64 w-full col-start-4">
-          <Image
-            src={heroImg1}
-            alt="Hero"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+        {images?.map((img, index) => (
+          <div key={index} className="relative h-64 w-full">
+            <Image
+              src={img}
+              alt={`${title} image ${index + 1}`}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
