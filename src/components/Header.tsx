@@ -6,7 +6,7 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <div className="bg-[#e3f6ff] sticky top-0 z-50">
+      <header className="bg-[#e3f6ff] sticky top-0 z-50">
         <nav className="flex justify-between p-4">
           <ul className="flex gap-4 font-stretch-semi-condensed font-semibold">
             <li>
@@ -29,7 +29,7 @@ const Header = () => {
             <ShoppingBag size={24} color="#121212" />
           </div>
         </nav>
-      </div>
+      </header>
     </>
   );
 };
