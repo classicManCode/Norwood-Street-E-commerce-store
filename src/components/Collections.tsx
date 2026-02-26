@@ -1,36 +1,60 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import { Arimo } from "next/font/google";
+import { Unbounded, Inter } from "next/font/google";
 
-const arimo = Arimo({
+export const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+});
+
+// const spaceGrotesk = Space_Grotesk({
+//   subsets: ["latin"],
+//   weight: ["500"],
+//   style: ["normal"],
+// });
+
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["italic", "normal"],
 });
 
+interface CollectionItem {
+  image: StaticImageData;
+  name?: string;
+  price?: string | number;
+  description?: string;
+  link?: string;
+}
+
 interface Collections {
   title: string;
   subtitle: string;
-  images?: StaticImageData[];
+  items?: CollectionItem[];
 }
 
-const Collections = ({ title, subtitle, images }: Collections) => {
+const Collections = ({ title, subtitle, items }: Collections) => {
   return (
-    <section className="px-4">
-      <h2 className={`text-2xl font-bold ${arimo.className} italic`}>
-        {title}
-      </h2>
-      <p className={`text-lg ${arimo.className}`}>{subtitle}</p>
+    <section className="px-4 mb-10">
+      <h2 className={`text-2xl ${unbounded.className} italic`}>{title}</h2>
+      <p className={`text-lg ${inter.className}`}>{subtitle}</p>
       <div className="grid grid-cols-4 gap-4">
-        {images?.map((img, index) => (
-          <div key={index} className="relative h-64 w-full">
-            <Image
-              src={img}
-              alt={`${title} image ${index + 1}`}
-              fill
-              priority
-              className="object-cover"
-            />
+        {items?.map((item, index) => (
+          <div key={index} className="flex flex-col gap-2">
+            <div className="relative h-64 w-full">
+              <Image
+                src={item.image}
+                alt={`${title} image ${index + 1}`}
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+            {item.name && <h3>{item.name}</h3>}
+            {item.price && <h3>{item.price}</h3>}
+            {item.description && <h3>{item.description}</h3>}
+            {item.link && <h3>{item.link}</h3>}
           </div>
         ))}
       </div>

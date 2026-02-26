@@ -2,6 +2,13 @@ import React from "react";
 import Image from "next/image";
 import heroImg1 from "@/public/gym-equipment.jpg";
 import Link from "next/link";
+import { Archivo } from "next/font/google";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["700"],
+  style: ["normal"],
+});
 
 const Hero = () => {
   // const heroImages = [
@@ -42,7 +49,9 @@ const Hero = () => {
 
           <div className="relative z-10 flex h-screen items-center justify-center">
             <div className="flex flex-col items-center justify-center gap-4">
-              <h1 className="text-white text-4xl font-bold">
+              <h1
+                className={`text-white text-4xl font-bold ${archivo.className}`}
+              >
                 Better Shopping Starts Here
               </h1>
               <p className="text-white text-lg w-1/2 text-center">
