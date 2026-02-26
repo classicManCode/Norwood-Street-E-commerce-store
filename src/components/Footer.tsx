@@ -1,4 +1,15 @@
+"use client";
+import { SyntheticEvent, useState } from "react";
+
 const Footer = () => {
+  const [email, setEmail] = useState<string>("");
+
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    setEmail("");
+    console.log(email);
+  };
+
   const currentYear: number = new Date().getFullYear();
   return (
     <footer className="bg-[#b6c0c5]">
@@ -25,14 +36,21 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-center gap-4">
           <h2 className="text-xl">Stay in the loop</h2>
           <span>Join our news letter for exclusive offers and updates</span>
-          <div className="flex">
+          <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full border border-amber-400 py-2 px-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full outline-none border-none py-2 px-2 bg-white rounded-lg placeholder:italic placeholder:text-sm"
             />
-            <button>Join</button>
-          </div>
+            <button
+              type="submit"
+              className="bg-[#465b66] text-white py-2 px-4 rounded-lg cursor-pointer"
+            >
+              Join
+            </button>
+          </form>
         </div>
       </div>
       <div className="w-full h-px bg-[#f7f7f7]"></div>
