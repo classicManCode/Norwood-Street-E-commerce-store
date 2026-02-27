@@ -1,24 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import { Unbounded, Inter } from "next/font/google";
-
-export const unbounded = Unbounded({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal"],
-});
-
-// const spaceGrotesk = Space_Grotesk({
-//   subsets: ["latin"],
-//   weight: ["500"],
-//   style: ["normal"],
-// });
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["italic", "normal"],
-});
+import { unbounded, inter } from "@/src/fonts/font";
 
 interface CollectionItem {
   image: StaticImageData;

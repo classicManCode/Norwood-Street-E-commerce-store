@@ -1,12 +1,11 @@
 import React from "react";
+import ShopHeading from "@/src/components/ShopHeading";
 
 const Shop = () => {
   return (
-    <>
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold">Shop Page</h1>
-      </div>
-    </>
+    <main>
+      <ShopHeading />
+    </main>
   );
 };
 

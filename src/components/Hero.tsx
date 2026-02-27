@@ -2,13 +2,9 @@ import React from "react";
 import Image from "next/image";
 import heroImg1 from "@/public/gym-equipment.jpg";
 import Link from "next/link";
-import { Archivo } from "next/font/google";
+import { archivo } from "@/src/fonts/font";
 
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["700"],
-  style: ["normal"],
-});
+
 
 const Hero = () => {
   // const heroImages = [
